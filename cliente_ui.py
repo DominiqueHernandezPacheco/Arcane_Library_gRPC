@@ -35,7 +35,7 @@ if 'productos_lista' not in st.session_state:
     st.session_state.productos_lista = []
 
 # --- CONFIGURACIÓN DE CONEXIÓN REMOTA ---
-url_ngrok_activa = "6.tcp.ngrok.io:13299" 
+url_ngrok_activa = "4.tcp.ngrok.io:11767" 
 
 with st.sidebar:
     st.markdown("### 🌐 Monitoreo Distribuido")
