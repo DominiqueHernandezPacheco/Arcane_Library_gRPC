@@ -1,5 +1,0 @@
-streamlit
-grpcio
-grpcio-tools
-pandas
-3.  **URL de ngrok**: Cada vez que inicies tu servidor en tu laptop, ngrok te dará una URL nueva. Debes actualizarla en la línea 40 de este archivo antes de que el maestro entre a tu link de Streamlit Cloud.
