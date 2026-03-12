@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package carrito;
+
+service GestorCarrito {
+  rpc AgregarItem (ItemRequest) returns (CarritoResponse) {}
+  rpc Pagar (VaciarRequest) returns (CarritoResponse) {} 
+  // Nueva función para que todos los clientes sepan qué hay en stock
+  rpc ObtenerInventario (Empty) returns (InventarioResponse) {}
+}
+
+message Empty {}
+
+message ItemRequest {
+  string producto = 1;
+  float precio = 2;
+  int32 cantidad = 3;
+  string cliente_id = 4;
+}
+
+message VaciarRequest {
+  string cliente_id = 1;
+}
+
+message ItemDetalle {
+  string nombre = 1;
+  int32 cantidad = 2;
+  float subtotal = 3;
+}
+
+message ProductoStock {
+  string nombre = 1;
+  int32 stock = 2;
+  float precio = 3;
+}
+
+message InventarioResponse {
+  repeated ProductoStock productos = 1;
+  int32 version = 2; // Para saber si algo cambió sin descargar todo
+}
+
+message CarritoResponse {
+  string mensaje = 1;
+  int32 total_articulos = 2;
+  float gran_total = 3;
+  repeated ItemDetalle desglose = 4;
+  bool exito = 5;
+}
